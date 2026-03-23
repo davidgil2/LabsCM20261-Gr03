@@ -199,7 +199,8 @@ fun PersonalDataScreen() {
                     errorFecha = fVacia
 
                     if (!nVacio && !aVacio && !fVacia) {
-                        Toast.makeText(context, "Datos: $nombres $sexo en $gradoSeleccionado", Toast.LENGTH_LONG).show()
+                        val intent = android.content.Intent(context, ContactDataActivity::class.java)
+                        context.startActivity(intent)
                     } else {
                         Toast.makeText(context, "Faltan campos obligatorios", Toast.LENGTH_SHORT).show()
                     }
