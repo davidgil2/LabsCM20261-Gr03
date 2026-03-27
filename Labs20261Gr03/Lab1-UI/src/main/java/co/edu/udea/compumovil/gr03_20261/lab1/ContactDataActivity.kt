@@ -1,6 +1,7 @@
 package co.edu.udea.compumovil.gr03_20261.lab1
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -193,6 +194,13 @@ fun ContactDataScreen() {
                 errorPais = pVacio
 
                 if (!tVacio && !eVacio && !pVacio) {
+                    Log.d("ContactData", "Información de contacto:")
+                    Log.d("ContactData", "Teléfono: $telefono")
+                    Log.d("ContactData", "Dirección: $direccion")
+                    Log.d("ContactData", "Email: $email")
+                    Log.d("ContactData", "País: $pais")
+                    Log.d("ContactData", "Ciudad: $ciudad")
+
                     Toast.makeText(context, context.getString(R.string.info_saved_msg), Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context, context.getString(R.string.missing_fields_error), Toast.LENGTH_SHORT).show()

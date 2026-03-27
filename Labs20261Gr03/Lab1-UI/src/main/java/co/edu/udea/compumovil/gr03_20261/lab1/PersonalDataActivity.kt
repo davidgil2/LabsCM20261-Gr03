@@ -3,6 +3,7 @@ package co.edu.udea.compumovil.gr03_20261.lab1
 import android.app.DatePickerDialog
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -207,6 +208,12 @@ fun PersonalDataScreen() {
                     errorFecha = fVacia
 
                     if (!nVacio && !aVacio && !fVacia) {
+                        Log.d("PersonalData", "Información personal:")
+                        Log.d("PersonalData", "$nombres $apellidos")
+                        Log.d("PersonalData", sexo)
+                        Log.d("PersonalData", "Nació el $fecha")
+                        Log.d("PersonalData", gradoSeleccionado)
+
                         val intent = android.content.Intent(context, ContactDataActivity::class.java)
                         context.startActivity(intent)
                     } else {
