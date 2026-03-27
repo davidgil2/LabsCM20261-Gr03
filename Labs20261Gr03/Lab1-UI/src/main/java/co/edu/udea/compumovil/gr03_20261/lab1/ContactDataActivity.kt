@@ -16,6 +16,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -67,7 +68,7 @@ fun ContactDataScreen() {
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Text(
-            text = "Información de Contacto",
+            text = stringResource(id = R.string.contact_info_title),
             style = MaterialTheme.typography.headlineSmall,
             color = MaterialTheme.colorScheme.primary
         )
@@ -76,25 +77,25 @@ fun ContactDataScreen() {
         OutlinedTextField(
             value = telefono,
             onValueChange = { telefono = it; errorTelefono = false },
-            label = { Text("Teléfono *") },
+            label = { Text(stringResource(id = R.string.phone_label)) },
             leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
             isError = errorTelefono,
             modifier = Modifier.fillMaxWidth(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone, imeAction = ImeAction.Next)
         )
-        if (errorTelefono) Text("Obligatorio", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+        if (errorTelefono) Text(stringResource(id = R.string.required_error), color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
 
         // Email
         OutlinedTextField(
             value = email,
             onValueChange = { email = it; errorEmail = false },
-            label = { Text("Email *") },
+            label = { Text(stringResource(id = R.string.email_label)) },
             leadingIcon = { Icon(Icons.Default.Email, contentDescription = null) },
             isError = errorEmail,
             modifier = Modifier.fillMaxWidth(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email, imeAction = ImeAction.Next)
         )
-        if (errorEmail) Text("Obligatorio", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+        if (errorEmail) Text(stringResource(id = R.string.required_error), color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
 
         // País (Autocomplete simulado)
         ExposedDropdownMenuBox(
@@ -104,7 +105,7 @@ fun ContactDataScreen() {
             OutlinedTextField(
                 value = pais,
                 onValueChange = { pais = it; errorPais = false },
-                label = { Text("País *") },
+                label = { Text(stringResource(id = R.string.country_label)) },
                 leadingIcon = { Icon(Icons.Default.Public, contentDescription = null) },
                 isError = errorPais,
                 modifier = Modifier.fillMaxWidth().menuAnchor(),
@@ -130,7 +131,7 @@ fun ContactDataScreen() {
                 }
             }
         }
-        if (errorPais) Text("Obligatorio", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+        if (errorPais) Text(stringResource(id = R.string.required_error), color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
 
         // Ciudad (Autocomplete simulado)
         ExposedDropdownMenuBox(
@@ -140,7 +141,7 @@ fun ContactDataScreen() {
             OutlinedTextField(
                 value = ciudad,
                 onValueChange = { ciudad = it },
-                label = { Text("Ciudad") },
+                label = { Text(stringResource(id = R.string.city_label)) },
                 leadingIcon = { Icon(Icons.Default.LocationCity, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth().menuAnchor(),
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedCiudad) },
@@ -169,7 +170,7 @@ fun ContactDataScreen() {
         OutlinedTextField(
             value = direccion,
             onValueChange = { direccion = it },
-            label = { Text("Dirección") },
+            label = { Text(stringResource(id = R.string.address_label)) },
             leadingIcon = { Icon(Icons.Default.Map, contentDescription = null) },
             modifier = Modifier.fillMaxWidth(),
             keyboardOptions = KeyboardOptions(
@@ -192,14 +193,14 @@ fun ContactDataScreen() {
                 errorPais = pVacio
 
                 if (!tVacio && !eVacio && !pVacio) {
-                    Toast.makeText(context, "Información guardada", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.info_saved_msg), Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(context, "Faltan campos obligatorios", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.missing_fields_error), Toast.LENGTH_SHORT).show()
                 }
             },
             modifier = Modifier.align(Alignment.End)
         ) {
-            Text("Siguiente")
+            Text(stringResource(id = R.string.next_button))
         }
     }
 }
