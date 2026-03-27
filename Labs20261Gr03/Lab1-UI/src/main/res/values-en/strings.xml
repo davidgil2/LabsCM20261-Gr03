@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Labs20261-Gr03</string>
+    <string name="personal_info_title">Personal Information</string>
+    <string name="first_names">First Names *</string>
+    <string name="last_names">Last Names *</string>
+    <string name="gender">Gender:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="birth_date">Birth Date *</string>
+    <string name="change_button">Change</string>
+    <string name="education_level">Education Level</string>
+    <string name="next_button">Next</string>
+    <string name="required_error">This field is required</string>
+    <string name="date_error">Select your birth date</string>
+    <string name="missing_fields_error">Required fields are missing</string>
+    <string name="grade_primary">Primary</string>
+    <string name="grade_secondary">Secondary</string>
+    <string name="grade_university">University</string>
+    <string name="grade_other">Other</string>
+
+    <string name="contact_info_title">Contact Information</string>
+    <string name="phone_label">Phone *</string>
+    <string name="email_label">Email *</string>
+    <string name="country_label">Country *</string>
+    <string name="city_label">City</string>
+    <string name="address_label">Address</string>
+    <string name="info_saved_msg">Information saved</string>
+</resources>
